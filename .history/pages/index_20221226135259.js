@@ -1,0 +1,7 @@
+export default function Home() {
+	return (
+		<div className="text-3xl text-green-600 p-2 bg-slate-400 mt-[4.6rem] px-[2.1rem]">
+			Main content
+		</div>
+	);
+}

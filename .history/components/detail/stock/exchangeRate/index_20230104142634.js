@@ -1,0 +1,41 @@
+import React from 'react';
+import { useUsdToVnd } from '@services/stock/useStock';
+
+function ExchangeRate() {
+	const { data, isLoading, isError, error, isFetching } = useUsdToVnd();
+	if (data) {
+		return (
+			<>
+				<h2 className="text-[2.4rem] font-semibold">
+					Công cụ chuyển đổi tiền tệ
+				</h2>
+				<div className="flex justify-between flex-col sm:flex-row mt-[3.5rem]">
+					<div className=" justify-between ml-[3rem]  flex items-center">
+						<div className="mr-[1rem] border-r border-black-text-2  w-full ">
+							<input
+								// ref={inputCoin}
+								// onChange={convertCoinToUsd}
+								className=" outline-none text-[2rem] w-full "
+								placeholder="0"
+							/>
+						</div>
+						<div className=" w-[6rem]  text-[2rem]">VND</div>
+					</div>
+					<div className=" justify-between ml-[3rem] flex items-center">
+						<div className="mr-[1rem] border-r border-black-text-2 w-full">
+							<input
+								// ref={inputCoin}
+								// onChange={convertCoinToUsd}
+								className=" outline-none text-[2rem] w-full"
+								placeholder="0"
+							/>
+						</div>
+						<div className=" w-[6rem]  text-[2rem]">USD</div>
+					</div>
+				</div>
+			</>
+		);
+	}
+}
+
+export default ExchangeRate;
