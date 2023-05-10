@@ -27,20 +27,15 @@ concurrency:
 jobs:
   # Build job
   build:
+    environment:
+      name: webtygia_env
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: install
-        run: npm i
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-        - name: build
-          run: npm run build
-        - name: start
-          run: npm run start
+        run: npm i next
+      - name: build
+        run: npm run build
+      - name: start
+        run: npm run start
+        
