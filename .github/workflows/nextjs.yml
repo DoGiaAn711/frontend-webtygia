@@ -27,15 +27,12 @@ concurrency:
 jobs:
   # Build job
   build:
-    environment:
-      name: webtygia_env
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: install
-        run: npm i next
-      - name: build
+      - name: checkout code
+        uses: actions/checkout@v3
+      - name: install npm dêpndencies
+        run: npm install
+      - name: build project assets
         run: npm run build
-      - name: start
-        run: npm run start
         
