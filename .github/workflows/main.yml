@@ -7,9 +7,6 @@ on:
 jobs:
   build:
     name: Build webtygia
-    environment:
-      name: webtygia_env
-      url: https://tygia.com
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
