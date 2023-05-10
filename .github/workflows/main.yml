@@ -17,9 +17,13 @@ jobs:
         run: npm run build
   deploy:
     name: Deploy webtygia
+    environment:
+      name: webtygia_env
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: start run project
-        run: npm run start
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
       
