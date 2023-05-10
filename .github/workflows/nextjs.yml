@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: install
-      run: npm i next
+        run: npm i
 
   # Deployment job
   deploy:
@@ -41,6 +41,6 @@ jobs:
     needs: build
     steps:
         - name: build
-        run: npm run build
+          run: npm run build
         - name: start
-        run: npm run start
+          run: npm run start
