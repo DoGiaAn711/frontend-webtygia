@@ -4,10 +4,6 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 jobs:
   build:
     name: Build webtygia
@@ -19,7 +15,4 @@ jobs:
         run: npm install
       - name: build project assets
         run: npm run build
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
       
